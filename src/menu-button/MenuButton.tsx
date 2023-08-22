@@ -27,9 +27,6 @@ export const MenuButton = ({
                 list.id === activeList ? '-active' : ''
               }`}
               key={list.id}
-              onClick={() => {
-                navigateTo(list.id);
-              }}
             >
               {list.title}
             </Link>

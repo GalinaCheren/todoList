@@ -50,8 +50,6 @@ function Todolist() {
         ]
   );
 
-  const [activeList, setActiveList] = useState<string>(null);
-
   useEffect(() => {
     localStorage.todoList = JSON.stringify(todoList);
     localStorage.todolists = JSON.stringify(todolists);
@@ -59,6 +57,19 @@ function Todolist() {
 
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const activeList = useMemo(() => {
+    if (!id) return todolists[0].id;
+    if (todolists.find((todo) => todo.id === id)) {
+      return id;
+    }
+    const titleObject = todolists.find(
+      (todo) => todo.title.slice(4, -1) === id
+    );
+    if (titleObject) {
+      return titleObject.id;
+    }
+  }, [id, todolists]);
 
   console.log(todoList, todolists);
 
@@ -82,24 +93,13 @@ function Todolist() {
   );
 
   useEffect(() => {
-    if (!id) {
-      setActiveList(todolists[0].id);
-    } else if (todolists.find((todo) => todo.id === id)) {
-      setActiveList(id);
-    } else {
-      const titleObject = todolists.find(
-        (todo) => todo.title.slice(4, -1) === id
-      );
-      if (titleObject) {
-        setActiveList(titleObject.id);
-      } else {
-        navigate('/404');
-      }
+    if (id && !activeList) {
+      navigate('/404');
     }
-  }, [id, navigate, todolists]);
+  }, [id, activeList, navigate]);
 
   const navigateTo = (navigateId: string) => {
-    setActiveList(navigateId);
+    navigate('/' + navigateId);
   };
 
   const removeMovie = useCallback(
@@ -174,7 +174,6 @@ function Todolist() {
     });
     const newTodolists = todolists.filter((list) => list.id !== activeList);
     setTodolists(newTodolists);
-    setActiveList(newTodolists[0]?.id);
     navigate('/watch');
   }, [activeList, todolists, navigate]);
 

@@ -1,0 +1,62 @@
+.sort-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin: 0 15px 10px 10px;
+}
+.total-amount {
+  background: rgba(33, 124, 163, 0.3);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  color: beige;
+  padding: 5px 10px;
+  font-size: 17px;
+  border-radius: 5px;
+}
+.color-amount {
+  color: #e29930;
+}
+.sort {
+  background: rgba(33, 124, 163, 0.3);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  color: beige;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 17px;
+  border-radius: 5px;
+}
+.sort:hover {
+  background-color: rgba(226, 153, 48, 0.3);
+}
+.sort.active {
+  background: rgba(226, 153, 48, 0.3);
+}
+.sort-button-child {
+  z-index: 10;
+  position: absolute;
+  text-align: right;
+  top: 100%;
+  right: 15px;
+  display: none;
+  cursor: pointer;
+  background-color: black;
+  min-width: 100px;
+  font-size: 17px;
+}
+.sort-button-child .sort-menu {
+  color: beige;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+}
+.sort-menu-active {
+  background: rgba(226, 153, 48, 0.3);
+  padding: 5px;
+}
+.sort-button-child .sort-menu:hover {
+  background: rgba(33, 124, 163, 0.3);
+}
+.sort:hover .sort-button-child {
+  display: block;
+}

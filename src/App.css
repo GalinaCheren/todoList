@@ -1,38 +1,363 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;1,100;1,200&family=Raleway:ital,wght@0,200;0,300;1,100&display=swap');
+
+body {
+  background: #211f30;
+  margin: 0;
+}
+.list-block {
+  max-width: 1664px;
+  margin: 0 auto;
+  position: relative;
+  min-width: 300px;
+}
+.list-block1 {
+  max-width: 1664px;
+  margin: 0 auto;
+  min-width: 300px;
+}
+
+.line {
+  border-bottom: 2mm ridge beige;
+}
+.list-title {
+  font-size: 45px;
+  font-family: 'Raleway', sans-serif;
   text-align: center;
+  text-shadow: #217ca3 1px 0 5px;
+  margin: 0;
+  padding: 20px;
+  color: #e29930;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.add-new-movie {
+  display: flex;
+  justify-content: center;
+  padding: 30px 30px 0 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.button-add {
+  margin: 10px 25px;
+  background: #e29930;
+  color: beige;
+  border-radius: 20px;
+  padding: 15px;
+  font-family: 'Raleway', sans-serif;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button-add:hover {
+  background-color: #32384d;
+  box-shadow: 0 0 20px #217ca3;
+}
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+}
+.filter-button {
+  margin: 10px 25px;
+  background: #e29930;
+  color: beige;
+  border-radius: 20px;
+  padding: 8px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+}
+.filter-button-active-filter {
+  margin: 10px 25px;
+  background: #32384d;
+  color: beige;
+  border-radius: 20px;
+  padding: 8px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+}
+.filter-button:hover {
+  background-color: #32384d;
+  box-shadow: 5px 5px 20px 1px #217ca3;
+}
+.onDelete-button {
+  display: block;
+  background-image: url('../pngegg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: beige;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+  background-size: 10px;
+}
+.onDelete-button:hover {
+  background-color: #e29930;
+  box-shadow: 5px 5px 20px 1px #217ca3;
+}
+.input-add {
+  border-radius: 10px;
+  padding: 5px;
+  font-family: 'Raleway', sans-serif;
+}
+.watch-list {
+  padding: 10px;
+  margin: auto;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+.watch-list p {
+  margin: 0;
+  white-space: break-spaces;
+  text-align: left;
+  font-family: 'Raleway', sans-serif;
+}
+.item-title-year {
+  font-size: 10px;
+}
+.movie {
+  border-bottom: solid beige 0.5px;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+
+  margin: 5px;
+  padding: 10px 10px 5px 10px;
+  color: beige;
+}
+.movie.opacity {
+  opacity: 0.4;
+}
+.input-checkbox-p {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-bottom: 5px;
+}
+.input-checkbox-p input {
+  margin-right: 10px;
+}
+.input-checkbox-p button {
+  margin-left: 10px;
+}
+form {
+  display: flex;
+}
+.form-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+form input {
+  margin: 5px;
+}
+img {
+  max-width: 70px;
+  max-height: 90px;
+}
+.mainmenubtn {
+  background-color: #217ca3;
+  color: beige;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 17px;
+  border-radius: 5px;
+  /* font-weight: 600; */
+  margin: 0 20px;
+  font-family: 'Raleway', sans-serif;
+}
+.mainmenubtn:hover {
+  background-color: #217ca3;
+}
+.dropdown {
+  position: absolute;
+  display: inline-block;
+}
+.dropdown-child {
+  display: none;
+  cursor: pointer;
+  background-color: black;
+  min-width: 200px;
+  font-size: 17px;
+  margin: 0 20px;
+  font-family: 'Raleway', sans-serif;
+}
+.dropdown-child .menu-button {
+  color: beige;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+}
+.menu-button-active {
+  display: block;
+  text-decoration: none;
+  background-color: #e29930;
+  padding: 5px;
+}
+.dropdown-child .menu-button:hover {
+  background-color: #217ca3;
+}
+.dropdown:hover .dropdown-child {
+  display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.add-remove-list-buttons {
+  position: absolute;
+  display: flex;
+  right: 20px;
+}
+.add-new-list-button {
+  background-color: #217ca3;
+  color: beige;
+  border-right: solid 1px beige;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 0 5px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.remove-list-button {
+  display: block;
+  background-image: url('../pngegg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #217ca3;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: solid 1px beige;
+  width: 20px;
+  height: 20px;
+  background-size: 15px;
+  cursor: pointer;
+  padding: 5px;
+}
+.remove-list-button-inactive {
+  pointer-events: none;
+  display: block;
+  background-image: url('../pngegg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #969696;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: solid 1px beige;
+  width: 20px;
+  height: 20px;
+  background-size: 15px;
+  cursor: pointer;
+  padding: 5px;
+}
+.add-new-list-button:hover {
+  background-color: #e29930;
+  box-shadow: 5px 5px 20px 1px black;
+}
+.remove-list-button:hover {
+  background-color: #e29930;
+
+  box-shadow: 5px 5px 20px 1px black;
+}
+.modal {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.modal-window {
+  background-color: beige;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  padding: 10px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.delete-todolist-button {
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  background-color: #e29930;
+  padding: 5px;
+  border: 0.5px solid black;
+  font-family: 'Raleway', sans-serif;
+}
+.delete-todolist-button:hover {
+  background-color: #217ca3;
+  color: aliceblue;
+}
+.cancel-todolist-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: beige;
+  border: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+}
+.cancel-todolist-button:hover {
+  background-color: rgb(220, 220, 173);
+}
+.delete-todolist-title {
+  padding: 10px 0;
+  text-align: center;
+}
+.add-todolist-title {
+  text-align: center;
+}
+.add-todolist-input {
+  display: block;
+  margin: auto;
+  border: groove;
+}
+.add-todolist-button {
+  cursor: pointer;
+  background-color: #e29930;
+  padding: 5px;
+  border: 0.5px solid black;
+  font-family: 'Raleway', sans-serif;
+}
+.add-todolist-button:hover {
+  background-color: #217ca3;
+  color: aliceblue;
+}
+.add-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.bg-black {
+  background-color: black;
+}
+.rating-container {
+  display: inline;
+}
+.star {
+  display: inline-block;
+  background-color: #e29930;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 1px;
+  background-image: url('./rating/free-icon-star-5383343.png');
+  background-size: cover;
+  border-radius: 10px;
+}
+.star:hover {
+  background-image: url('./rating/free-icon-star-4211296.png');
+  box-shadow: 0 0 10px beige;
+}
+.star.active {
+  background-image: url('./rating/free-icon-star-4211296.png');
+}
+@media all and (max-width: 900px) {
+  .add-new-movie {
+    padding-top: 50px;
   }
 }
